@@ -74,6 +74,35 @@
 			<version>1.2.16</version>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- Dependência Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.2.Final</version>
+		</dependency>
+
+		<!-- Dependência do Spring Framework ORM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.3.8.RELEASE</version>
+		</dependency>
+
+		<!-- Dependência do hibernate e especificação JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.8.Final</version>
+		</dependency>
+
+		<!-- Driver de conexão com o BD MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<properties>
