@@ -1,4 +1,4 @@
-package br.com.cr.springcdc.controllers;
+package br.com.cr.springcdc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
