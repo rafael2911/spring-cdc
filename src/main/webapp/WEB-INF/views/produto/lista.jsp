@@ -12,6 +12,9 @@
 <body>
 	<h1>Lista de Produtos</h1>
 	
+	
+	<div>${message }</div>
+	
 	<table>
 		<tr>
 			<th>Título</th>

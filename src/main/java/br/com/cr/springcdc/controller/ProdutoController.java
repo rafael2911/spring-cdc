@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cr.springcdc.dao.ProdutoDao;
 import br.com.cr.springcdc.model.Produto;
@@ -27,10 +28,13 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public String salvar(Produto produto) {
+	public ModelAndView salvar(Produto produto, RedirectAttributes attr) {
 		System.out.println(produto);
 		produtoDao.save(produto);
-		return "produto/ok";
+		
+		attr.addFlashAttribute("message", "Produto cadastrado com sucesso!");
+		
+		return new ModelAndView("redirect:/produto/");
 	}
 	
 	@GetMapping
