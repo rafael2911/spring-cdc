@@ -33,4 +33,11 @@ public class ProdutoController {
 		return "produto/ok";
 	}
 	
+	@GetMapping("/")
+	public ModelAndView listar() {
+		ModelAndView modelAndView = new ModelAndView("produto/lista");
+		modelAndView.addObject("produtos", produtoDao.findAll());
+		return modelAndView;
+	}
+	
 }

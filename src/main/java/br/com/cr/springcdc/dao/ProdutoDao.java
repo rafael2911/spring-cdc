@@ -1,5 +1,7 @@
 package br.com.cr.springcdc.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -20,6 +22,12 @@ public class ProdutoDao {
 		entityManager.persist(produto);
 		
 		return produto;
+	}
+
+	public List<Produto> findAll() {
+		
+		return entityManager.createQuery("from Produto p", Produto.class).getResultList();
+		
 	}
 	
 }
