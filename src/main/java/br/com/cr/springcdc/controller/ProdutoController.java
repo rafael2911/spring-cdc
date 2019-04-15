@@ -12,13 +12,13 @@ import br.com.cr.springcdc.model.Produto;
 import br.com.cr.springcdc.model.TipoPreco;
 
 @Controller
-@RequestMapping("/produto")
+@RequestMapping("produto")
 public class ProdutoController {
 	
 	@Autowired
 	private ProdutoDao produtoDao;
 	
-	@GetMapping("/form")
+	@GetMapping("form")
 	public ModelAndView form() {
 		ModelAndView modelAndView = new ModelAndView("produto/form");
 		modelAndView.addObject("tipos", TipoPreco.values());
@@ -26,14 +26,14 @@ public class ProdutoController {
 		return modelAndView;
 	}
 	
-	@PostMapping("/")
+	@PostMapping
 	public String salvar(Produto produto) {
 		System.out.println(produto);
 		produtoDao.save(produto);
 		return "produto/ok";
 	}
 	
-	@GetMapping("/")
+	@GetMapping
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("produto/lista");
 		modelAndView.addObject("produtos", produtoDao.findAll());
