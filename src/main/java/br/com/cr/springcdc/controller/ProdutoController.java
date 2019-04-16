@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,7 +41,9 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ModelAndView salvar(@Valid Produto produto, BindingResult result, RedirectAttributes attr) {
+	public ModelAndView salvar(MultipartFile sumario, @Valid Produto produto, BindingResult result, RedirectAttributes attr) {
+		
+		System.out.println(sumario.getOriginalFilename());
 		
 		/* verifica se validacao retorna erros */
 		if(result.hasErrors()) {

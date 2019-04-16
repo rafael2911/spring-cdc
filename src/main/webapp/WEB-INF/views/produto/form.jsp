@@ -13,7 +13,7 @@
 </head>
 <body>
 	<s:url value="/produto" var="produto" />
-	<form:form action="${produto}" method="post" commandName="produto">
+	<form:form action="${produto}" method="post" commandName="produto" enctype="multipart/form-data">
 		<div>
 			<label>Título:</label>
 			<form:input path="titulo" />
@@ -42,6 +42,11 @@
 				<form:hidden path="precos[${status.index }].tipo" value="${tipoPreco }" />
 			</div>
 		</c:forEach>
+		
+		<div>
+			<label>Sumário:</label>
+			<input type="file" name="sumario">
+		</div>
 		
 		<button type="submit">Salvar</button>
 	</form:form>
