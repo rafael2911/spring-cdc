@@ -32,7 +32,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("form")
-	public ModelAndView form() {
+	public ModelAndView form(Produto produto) {
 		ModelAndView modelAndView = new ModelAndView("produto/form");
 		modelAndView.addObject("tipos", TipoPreco.values());
 		
@@ -44,7 +44,7 @@ public class ProdutoController {
 		
 		/* verifica se validacao retorna erros */
 		if(result.hasErrors()) {
-			return form();
+			return form(produto);
 		}
 		
 		produtoDao.save(produto);

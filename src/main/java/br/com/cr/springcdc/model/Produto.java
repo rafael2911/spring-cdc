@@ -1,5 +1,6 @@
 package br.com.cr.springcdc.model;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "produtos")
@@ -27,6 +30,9 @@ public class Produto {
 	private String descricao;
 	
 	private int paginas;
+	
+	@DateTimeFormat
+	private Calendar dataLancamento;
 	
 	@ElementCollection
 	private List<Preco> precos;
@@ -61,6 +67,14 @@ public class Produto {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Calendar getDataLancamento() {
+		return dataLancamento;
+	}
+
+	public void setDataLancamento(Calendar dataLancamento) {
+		this.dataLancamento = dataLancamento;
 	}
 
 	public List<Preco> getPrecos() {
