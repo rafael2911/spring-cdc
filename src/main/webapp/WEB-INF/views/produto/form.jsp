@@ -12,7 +12,8 @@
 <title>Formulário de Cadastro</title>
 </head>
 <body>
-	<form:form action="${s:mvcUrl('PC#salvar').build() }" method="post" commandName="produto">
+	<s:url value="/produto" var="produto" />
+	<form:form action="${produto}" method="post" commandName="produto">
 		<div>
 			<label>Título:</label>
 			<input type="text" name="titulo">
