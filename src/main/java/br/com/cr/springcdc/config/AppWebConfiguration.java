@@ -15,9 +15,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.cr.springcdc.controller.HomeController;
 import br.com.cr.springcdc.dao.ProdutoDao;
+import br.com.cr.springcdc.infra.FileSaver;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class, ProdutoDao.class})
+@ComponentScan(basePackageClasses={HomeController.class, ProdutoDao.class, FileSaver.class})
 public class AppWebConfiguration {
 	
 	@Bean
@@ -48,6 +49,7 @@ public class AppWebConfiguration {
 		return conversionService;
 	}
 	
+	@Bean
 	public MultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
 	}

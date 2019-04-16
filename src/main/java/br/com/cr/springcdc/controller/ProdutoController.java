@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cr.springcdc.dao.ProdutoDao;
+import br.com.cr.springcdc.infra.FileSaver;
 import br.com.cr.springcdc.model.Produto;
 import br.com.cr.springcdc.model.TipoPreco;
 import br.com.cr.springcdc.validator.ProdutoValidator;
@@ -25,6 +26,9 @@ public class ProdutoController {
 	
 	@Autowired
 	private ProdutoDao produtoDao;
+	
+	@Autowired
+	private FileSaver fileSaver;
 	
 	/* Registra o validador criado para a classe produto */
 	@InitBinder
@@ -43,12 +47,14 @@ public class ProdutoController {
 	@PostMapping
 	public ModelAndView salvar(MultipartFile sumario, @Valid Produto produto, BindingResult result, RedirectAttributes attr) {
 		
-		System.out.println(sumario.getOriginalFilename());
-		
 		/* verifica se validacao retorna erros */
 		if(result.hasErrors()) {
 			return form(produto);
 		}
+		
+		// salva o arquivo e armazena o path
+		String path = fileSaver.write("arquivos-sumario", sumario);
+		produto.setSumarioPath(path);
 		
 		produtoDao.save(produto);
 		
