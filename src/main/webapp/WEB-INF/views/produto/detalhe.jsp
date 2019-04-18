@@ -103,11 +103,9 @@
 				</p>
 				<p></p>
 				<p>
-<<<<<<< HEAD
-					<fmt:formatDate pattern="dd/MM/yyyy" value="${produto.dataLancamento.time }"/>
-=======
+
 					Data de publicação: <fmt:formatDate pattern="dd/MM/yyyy" value="${produto.dataLancamento.time }"/>
->>>>>>> 2e693ec0a3c88f5e53f029ed4da87237577a885c
+
 				</p>
 				<p>
 					Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a>
