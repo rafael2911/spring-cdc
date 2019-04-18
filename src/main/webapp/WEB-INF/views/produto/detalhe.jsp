@@ -36,7 +36,7 @@
 				<nav id="main-nav">
 
 					<ul class="clearfix">
-						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
+						<li><a href="/cart" rel="nofollow">Carrinho (${carrinhoCompras.quantidade })</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
 					</ul>
@@ -71,12 +71,12 @@
 		</header>
 
 		<section class="buy-options clearfix">
-			<form action="/carrinho/add" method="post" class="container">
-				<input type="hidden" value="AQUI COLOQUE A ID DO PRODUTO" name="produtoId" >
+			<form action='<s:url value="/carrinho/add" />' method="post" class="container">
+				<input type="hidden" value="${produto.id }" name="produtoId" >
 				<ul id="variants" class="clearfix">
 					<c:forEach items="${produto.precos }" var="preco">
 						<li class="buy-option">
-							<input type="radio" name="tipoPreco" class="variant-radio" id="tipoPreco" value="AQUI COLOQUE O TIPO DO PRECO" checked="checked" /> 
+							<input type="radio" name="tipoPreco" class="variant-radio" id="tipoPreco" value="${preco.tipo }" checked="checked" /> 
 							<label class="variant-label">${preco.tipo }</label> 
 							<small class="compare-at-price">R$ 39,90</small>
 							<p class="variant-price">${preco.valor }</p>
@@ -103,7 +103,11 @@
 				</p>
 				<p></p>
 				<p>
+<<<<<<< HEAD
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${produto.dataLancamento.time }"/>
+=======
+					Data de publicação: <fmt:formatDate pattern="dd/MM/yyyy" value="${produto.dataLancamento.time }"/>
+>>>>>>> 2e693ec0a3c88f5e53f029ed4da87237577a885c
 				</p>
 				<p>
 					Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a>
