@@ -107,7 +107,7 @@
 
 				</p>
 				<p>
-					Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a>
+					Voltar para listagem: <a href='<s:url value="/produto" />'>Livros</a>
 				</p>
 			</section>
 		</div>

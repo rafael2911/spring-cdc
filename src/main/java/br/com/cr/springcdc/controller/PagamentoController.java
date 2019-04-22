@@ -1,5 +1,7 @@
 package br.com.cr.springcdc.controller;
 
+import java.util.concurrent.Callable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,27 +25,28 @@ public class PagamentoController {
 	private RestTemplate restTemplate;
 	
 	@PostMapping("finalizar")
-	public ModelAndView finalizar(RedirectAttributes attr) {
+	public Callable<ModelAndView> finalizar(RedirectAttributes attr) {
 		
-		String response = "";
-		
-		try {
+		return () -> {
 			
-			String uri = "http://book-payment.herokuapp.com/payment";
-			response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
+			try {
+				
+				String uri = "http://book-payment.herokuapp.com/payment";
+				String response = restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
+				
+				attr.addFlashAttribute("message", response);
+				
+				System.out.println(response);
+				
+				return new ModelAndView("redirect:/produto");
+				
+			}catch (HttpClientErrorException ex) {
+				attr.addFlashAttribute("message", "Valor maior que o permitido.");
+				ex.printStackTrace();
+				return new ModelAndView("redirect:/produto");
+			}
 			
-			attr.addFlashAttribute("message", response);
-			
-			System.out.println(response);
-			
-			return new ModelAndView("redirect:/produto");
-			
-		}catch (HttpClientErrorException ex) {
-			attr.addFlashAttribute("message", "Valor maior que o permitido.");
-			ex.printStackTrace();
-			return new ModelAndView("redirect:/produto");
-		}
-
+		};
 		
 	}
 	
