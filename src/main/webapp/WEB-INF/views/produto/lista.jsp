@@ -8,6 +8,10 @@
 <head>
 <meta charset="utf-8">
 <title>Listagem de Produtos</title>
+<c:url value="/resources/bootstrap/css" var="cssPath" />
+<link rel="stylesheet" href="${cssPath }/bootstrap.min.css">
+<link rel="stylesheet" href="${cssPath }/bootstrap-theme.css">
+
 </head>
 <body>
 	<h1>Lista de Produtos</h1>

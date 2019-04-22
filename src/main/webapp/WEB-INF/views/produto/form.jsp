@@ -10,6 +10,11 @@
 <head>
 <meta charset="utf-8">
 <title>Formulário de Cadastro</title>
+
+<c:url value="/resources/bootstrap/css" var="cssPath" />
+<link rel="stylesheet" href="${cssPath }/bootstrap.min.css">
+<link rel="stylesheet" href="${cssPath }/bootstrap-theme.css">
+
 </head>
 <body>
 	<s:url value="/produto" var="produto" />
