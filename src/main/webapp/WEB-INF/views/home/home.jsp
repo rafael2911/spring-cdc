@@ -30,10 +30,12 @@
 
 	<header id="layout-header">
 		<div class="clearfix container">
-			<a href="/" id="logo"> </a>
+			<a href='<c:url value="/produto/form" />' id="logo"> </a>
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
+						<li><a href='<c:url value="/produto" />' rel="nofollow">Listagem de Produtos</a></li>
+    					<li><a href='<c:url value="/produto/form" />' rel="nofollow">Cadastro de Produtos</a></li>
 						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
