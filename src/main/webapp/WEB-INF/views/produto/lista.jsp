@@ -44,6 +44,7 @@
 						<security:authentication property="principal" var="usuario" />
 						${usuario.nome }
 					</a></li>
+					<li><a href='<c:url value="/logout" />'>Sair</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
