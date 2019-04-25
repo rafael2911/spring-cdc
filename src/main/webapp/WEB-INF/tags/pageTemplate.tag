@@ -4,6 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <%@ attribute name="titulo" required="true" %>
 <%@ attribute name="bodyClass" required="false" %>
+<%@ attribute name="extraScripts" fragment="true" %>
 
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,8 @@
 <%@ include file="/WEB-INF/views/cabecalho.jsp" %>
 
 <jsp:doBody />
+
+<jsp:invoke fragment="extraScripts" ></jsp:invoke>
 
 <%@ include file="/WEB-INF/views/rodape.jsp" %>
 
