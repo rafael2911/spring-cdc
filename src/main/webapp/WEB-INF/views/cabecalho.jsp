@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 
 	<header id="layout-header">
 		<div class="clearfix container">
@@ -14,9 +15,7 @@
     					</security:authorize>
 						
 						<li><a href='<s:url value="/carrinho" />' rel="nofollow">
-							<fmt:message key="menu.carrinho">
-								<fmt:param value="${carrinhoCompras.quantidade }" />
-							</fmt:message>
+							<s:message code="menu.carrinho" arguments="${carrinhoCompras.quantidade }" />
 						</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">
 							<fmt:message key="menu.sobre" />
