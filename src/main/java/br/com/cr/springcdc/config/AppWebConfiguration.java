@@ -2,6 +2,7 @@ package br.com.cr.springcdc.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -15,6 +16,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
@@ -113,6 +116,24 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setContentNegotiationManager(manager);
 		
 		return resolver;
+	}
+	
+	@Bean
+	public MailSender mailSender() {
+		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		
+		mailSender.setHost("smtp.gmail.com");
+		mailSender.setUsername("crtecnologysoft@gmail.com");
+		mailSender.setPassword("Suporte*123");
+		mailSender.setPort(587);
+		
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", true);
+		props.put("mail.smtp.starttls.enable", true);
+		
+		mailSender.setJavaMailProperties(props);
+		
+		return mailSender;
 	}
 	
 	@Override
