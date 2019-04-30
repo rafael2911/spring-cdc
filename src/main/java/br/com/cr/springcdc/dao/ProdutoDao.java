@@ -29,7 +29,7 @@ public class ProdutoDao {
 
 	public List<Produto> findAll() {
 		
-		return entityManager.createQuery("from Produto p", Produto.class).getResultList();
+		return entityManager.createQuery("select distinct(p) from Produto p join fetch p.precos", Produto.class).getResultList();
 		
 	}
 
