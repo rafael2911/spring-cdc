@@ -25,7 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/static/**").permitAll()
 			.antMatchers("/carrinho/**").permitAll()
 			.antMatchers("/pagamento/**").permitAll()
-			.antMatchers("/url-magica-maluca").permitAll()
+			.antMatchers("/url-magica-maluca-kaksfojssklfbmaiwrunf6o5ol206l1k").permitAll()
 			.antMatchers("/produto/form").hasRole("ADMIN")
 			.antMatchers("/produto/form/").hasRole("ADMIN")
 			.antMatchers("/produto/").hasRole("ADMIN")

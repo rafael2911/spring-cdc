@@ -40,7 +40,7 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/url-magica-maluca")
+	@GetMapping("/url-magica-maluca-kaksfojssklfbmaiwrunf6o5ol206l1k")
 	@ResponseBody
 	//@Transactional
 	public String urlMagicaMaluca() {
