@@ -3,11 +3,10 @@ package br.com.cr.springcdc.controller;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,15 +41,15 @@ public class HomeController {
 	
 	@GetMapping("/url-magica-maluca-jfeowge7fsijg98mfksdgmslk33fsldkfsc8gh56urlf1f3f5f9")
 	@ResponseBody
-	//@Transactional
+	@Transactional
 	public String urlMagicaMaluca() {
-//		Usuario usuario = new Usuario(); 
-//	    usuario.setNome("Rafael");
-//	    usuario.setEmail("rafael@rafael.com.br");
-//	    usuario.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
-//	    usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
-//	    
-//	    usuarioDao.gravar(usuario);
+		Usuario usuario = new Usuario(); 
+	    usuario.setNome("Rafael");
+	    usuario.setEmail("rafael@rafael.com.br");
+	    usuario.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
+	    usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
+	    
+	    usuarioDao.gravar(usuario);
 
 	    return "Url Mágica executada";
 	}
