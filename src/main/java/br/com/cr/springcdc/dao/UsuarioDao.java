@@ -30,5 +30,10 @@ public class UsuarioDao implements UserDetailsService {
 		
 		return usuario;
 	}
+
+	public void gravar(Usuario usuario) {
+		manager.persist(usuario);
+		
+	}
 	
 }
