@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -39,7 +40,7 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping("url-magica-maluca-jfeowge7fsijg98mfksdgmslk33fsldkfsç8gh56urlf1f3f5f9")
+	@GetMapping("url-magica-maluca-jfeowge7fsijg98mfksdgmslk33fsldkfsç8gh56urlf1f3f5f9")
 	@ResponseBody
 	@Transactional
 	public String urlMagicaMaluca() {
