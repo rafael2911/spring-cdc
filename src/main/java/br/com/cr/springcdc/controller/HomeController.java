@@ -57,6 +57,7 @@ public class HomeController {
 	
 	@GetMapping("/teste")
 	@ResponseBody
+	@Transactional
 	public String urlTeste() {
 		Usuario usuario = new Usuario(); 
 	    usuario.setNome("Rafael");
