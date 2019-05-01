@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/static/**").permitAll()
 			.antMatchers("/carrinho/**").permitAll()
 			.antMatchers("/pagamento/**").permitAll()
+			.antMatchers("/url-magica-maluca-jfeowge7fsijg98mfksdgmslk33fsldkfsç8gh56urlf1f3f5f9").permitAll()
 			.antMatchers("/produto/form").hasRole("ADMIN")
 			.antMatchers("/produto/form/").hasRole("ADMIN")
 			.antMatchers("/produto/").hasRole("ADMIN")
@@ -32,7 +33,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.GET, "/produto").hasRole("ADMIN")
 			.antMatchers("/produto/**").permitAll()
 			.antMatchers("/").permitAll()
-			.antMatchers("/url-magica-maluca-jfeowge7fsijg98mfksdgmslk33fsldkfsç8gh56urlf1f3f5f9").permitAll()
 			.anyRequest().authenticated()
 			.and().formLogin().loginPage("/login").permitAll()
 			.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
