@@ -43,13 +43,13 @@ public class HomeController {
 	@ResponseBody
 	@Transactional
 	public String urlMagicaMaluca() {
-		Usuario usuario = new Usuario(); 
-	    usuario.setNome("Rafael");
-	    usuario.setEmail("rafael@rafael.com.br");
-	    usuario.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
-	    usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
-	    
-	    usuarioDao.gravar(usuario);
+//		Usuario usuario = new Usuario(); 
+//	    usuario.setNome("Rafael");
+//	    usuario.setEmail("rafael@rafael.com.br");
+//	    usuario.setSenha("$2a$10$lt7pS7Kxxe5JfP.vjLNSyOXP11eHgh7RoPxo5fvvbMCZkCUss2DGu");
+//	    usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
+//	    
+//	    usuarioDao.gravar(usuario);
 
 	    return "Url Mágica executada";
 	}
