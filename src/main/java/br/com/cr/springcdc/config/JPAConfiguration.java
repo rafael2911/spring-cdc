@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties additionalProperties) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		
@@ -25,7 +25,7 @@ public class JPAConfiguration {
 		
 		factoryBean.setDataSource(dataSource);
 		
-		factoryBean.setJpaProperties(getProperties());
+		factoryBean.setJpaProperties(additionalProperties);
 		
 		factoryBean.setPackagesToScan("br.com.cr.springcdc.model");
 		
@@ -44,7 +44,9 @@ public class JPAConfiguration {
 		return dataSource;
 	}
 	
-	private Properties getProperties() {
+	@Bean
+	@Profile("dev")
+	public Properties additionalProperties() {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		props.setProperty("hibernate.show_sql", "true");
