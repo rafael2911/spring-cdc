@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import br.com.cr.springcdc.dao.UsuarioDao;
 
@@ -19,6 +20,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+		encodingFilter.setEncoding("utf-8");
+		http.addFilter(encodingFilter);
+		
 		http
 			.authorizeRequests()
 			.antMatchers("/resources/**").permitAll()
@@ -43,5 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(usuarioDao)
 			.passwordEncoder(new BCryptPasswordEncoder());
 	}
+	
+	
 	
 }
